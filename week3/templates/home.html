@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block empdata %}
+    <form method="POST" action="/">
+        <input type="text" name="name">
+        <input type="text" name="age">
+        <input type="submit" name="add">
+    </form>
+    <table>
+       
+       <tbody>
+           {% for e in employees%}
+            <form method="POST" action="/update">
+                <input type="hidden" name="id" value="{{e.id}}">
+                <input type="text" name="name" value="{{e.name}}">
+                <input type="text" name="age" value="{{e.age}}">
+                <input type="submit" value="update">
+            </form>
+            <form method="POST" action="/delete">
+                <input type="hidden" name="id" value="{{e.id}}">
+                <input type="submit" value="delete">
+            </form>
+        <br/>
+           {% endfor %}
+       </tbody>
+       {% include 'details.html' %}
+    </table>
+{% endblock%}

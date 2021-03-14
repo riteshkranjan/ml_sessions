@@ -1,0 +1,14 @@
+<thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>age</td>
+        </tr>
+</thead>
+{% for e in employees%}
+        <tr>
+            <td>{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.age}}</td>
+        </tr>
+{% endfor %}
